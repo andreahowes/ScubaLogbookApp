@@ -1,6 +1,5 @@
-package com.andreahowes.dive_db.data;
+package com.andreahowes.dive_db.logic;
 
-import com.andreahowes.dive_db.logic.Dive;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;

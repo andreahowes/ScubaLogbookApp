@@ -16,7 +16,7 @@ public class StatisticsServiceTest {
     private DivesService divesServiceMock;
 
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         Dive dive1 = new Dive();
         Dive dive2 = new Dive();
         dive1.setDurationInMinutes(60);
@@ -51,7 +51,7 @@ public class StatisticsServiceTest {
     public void whenGettingMaxDepth_shouldReturnMaxDepthInMeters() {
         when(divesServiceMock.getAllDives()).thenReturn(diveList);
 
-        double maxDepthInMetersForAllDives = statisticsService.getMaxDepthInMetersForAllDives(diveList);
+        double maxDepthInMetersForAllDives = statisticsService.getMaxDepthInMetersForAllDives();
 
         assertThat(maxDepthInMetersForAllDives).isEqualTo(30);
     }
@@ -61,7 +61,7 @@ public class StatisticsServiceTest {
     public void whenGettingMinDepth_shouldReturnMinDepthInMeters() {
         when(divesServiceMock.getAllDives()).thenReturn(diveList);
 
-        double minDepthInMetersForAllDives = statisticsService.getMinDepthInMetersForAllDives(diveList);
+        double minDepthInMetersForAllDives = statisticsService.getMinDepthInMetersForAllDives();
 
         assertThat(minDepthInMetersForAllDives).isEqualTo(18);
     }
@@ -71,7 +71,7 @@ public class StatisticsServiceTest {
     public void whenGettingAverageDepthInMetersForAllDives_shouldReturnAverageDepthInMeters() {
         when(divesServiceMock.getAllDives()).thenReturn(diveList);
 
-        double averageDepthInMetersForAllDives = statisticsService.getAverageDepthInMetersForAllDives(diveList);
+        double averageDepthInMetersForAllDives = statisticsService.getAverageDepthInMetersForAllDives();
 
         assertThat(averageDepthInMetersForAllDives).isEqualTo(24);
     }

@@ -32,21 +32,21 @@ public class StatisticsController {
         return new Statistics(statisticsService.getTotalTimeInWaterInMinutes(), "Total Number of Minutes in the Water");
     }
 
-//    @GetMapping("/depth/max")
-//    public Statistics getMaxDepthInMetersForAllDives() {
-//        return new Statistics(statisticsService.getMaxDepthInMetersForAllDives(statisticsService.getDiveList()), "Max Depth In Meters");
-//
-//    }
-//
-//    @GetMapping("/depth/min")
-//    public Statistics getMinDepthInMetersForAllDives() {
-//        return new Statistics(statisticsService.getMinDepthInMetersForAllDives(statisticsService.getDiveList()), "Min Depth In Meters");
-//
-//    }
-//
-//    @GetMapping("/depth/average")
-//    public Statistics getAverageDepthInMetersForAllDives() {
-//        return new Statistics(statisticsService.getAverageDepthInMetersForAllDives(statisticsService.getDiveList()), "Average Depth in Meters");
-//
-//    }
+    @GetMapping("/depth/max")
+    public Statistics getMaxDepthInMetersForAllDives() {
+        return new Statistics(statisticsService.getMaxDepthInMetersForAllDives(),"Max Depth In Meters");
+
+    }
+
+    @GetMapping("/depth/min")
+    public Statistics getMinDepthInMetersForAllDives() {
+        return new Statistics(statisticsService.getMinDepthInMetersForAllDives(), "Min Depth In Meters");
+
+    }
+
+    @GetMapping("/depth/average")
+    public Statistics getAverageDepthInMetersForAllDives() {
+        return new Statistics(statisticsService.getAverageDepthInMetersForAllDives(), "Average Depth in Meters");
+
+    }
 }

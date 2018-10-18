@@ -29,7 +29,9 @@ public class StatisticsService {
 
     }
 
-    public double getMaxDepthInMetersForAllDives(List<Dive> allDives) {
+    public double getMaxDepthInMetersForAllDives() {
+        List<Dive> allDives = divesService.getAllDives();
+
         double maxDepth = 0;
         for (Dive dive : allDives) {
             if (maxDepth<dive.getMaxDepthInMeters()) {
@@ -39,7 +41,9 @@ public class StatisticsService {
         return maxDepth;
     }
 
-    public double getMinDepthInMetersForAllDives(List<Dive> allDives) {
+    public double getMinDepthInMetersForAllDives() {
+        List<Dive> allDives = divesService.getAllDives();
+
         Dive dive1 = allDives.get(0);
         double minDepth = dive1.getMaxDepthInMeters();
         for (Dive dive : allDives) {
@@ -49,7 +53,9 @@ public class StatisticsService {
         }
         return minDepth;
     }
-    public double getAverageDepthInMetersForAllDives(List<Dive> allDives) {
+    public double getAverageDepthInMetersForAllDives() {
+        List<Dive> allDives = divesService.getAllDives();
+
         double sumOfAllDepths = 0;
         for (Dive dive : allDives) {
             sumOfAllDepths += dive.getMaxDepthInMeters();
