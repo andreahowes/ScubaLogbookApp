@@ -19,12 +19,16 @@ public class DivesService {
     public List<Dive> getAllDives(){
         return diveRepository.getAllDives();
     }
-    public Dive getDiveByLocation(String location) {
+    public List<Dive> getDiveByLocation(String location) {
         return diveRepository.getDiveByLocation(location);
     }
 
-    public Dive getDiveByDate(LocalDate date) {
+    public List<Dive> getDiveByDate(LocalDate date) {
         return diveRepository.getDiveByDate(date);
+    }
+
+    public Dive getDiveById(int id){
+        return diveRepository.getDiveById(id);
     }
 
     public Dive save(Dive dive) {

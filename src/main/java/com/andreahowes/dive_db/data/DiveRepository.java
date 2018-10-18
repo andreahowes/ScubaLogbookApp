@@ -11,9 +11,11 @@ public interface DiveRepository {
 
     List<Dive> getAllDives();
 
-    Dive getDiveByLocation(String location);
+    List<Dive> getDiveByLocation(String location);
 
-    Dive getDiveByDate(LocalDate date);
+    List<Dive> getDiveByDate(LocalDate date);
+
+    Dive getDiveById(int id);
 
     Dive save(Dive dive);
 

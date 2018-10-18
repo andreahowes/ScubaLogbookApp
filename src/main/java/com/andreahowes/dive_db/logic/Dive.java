@@ -6,8 +6,8 @@ public class Dive {
     private int id;
     private LocalDate date;
     private String location;
-    private int duration;
-    private int maxDepth;
+    private double durationInMinutes;
+    private double maxDepthInMeters;
     private String waterConditions;
     private boolean safetyStop;
 
@@ -30,12 +30,12 @@ public class Dive {
         this.location = location;
     }
 
-    public void setDuration(int duration) {
-        this.duration = duration;
+    public void setDurationInMinutes(double durationInMinutes) {
+        this.durationInMinutes = durationInMinutes;
     }
 
-    public void setMaxDepth(int maxDepth) {
-        this.maxDepth = maxDepth;
+    public void setMaxDepthInMeters(double maxDepthInMeters) {
+        this.maxDepthInMeters = maxDepthInMeters;
     }
 
     public void setWaterConditions(String waterConditions) {
@@ -54,19 +54,19 @@ public class Dive {
         return location;
     }
 
-    public int getDuration() {
-        return duration;
+    public double getDurationInMinutes() {
+        return durationInMinutes;
     }
 
-    public int getMaxDepth() {
-        return maxDepth;
+    public double getMaxDepthInMeters() {
+        return maxDepthInMeters;
     }
 
     public String getWaterConditions() {
         return waterConditions;
     }
 
-    public boolean isSafetyStop() {
+    public boolean getSafetyStop() {
         return safetyStop;
     }
 }

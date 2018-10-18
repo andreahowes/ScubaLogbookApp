@@ -27,13 +27,18 @@ public class DivesController {
     }
 
     @GetMapping("/location/{location}")
-    public Dive getDiveByLocation(@PathVariable String location) {
+    public List<Dive> getDiveByLocation(@PathVariable String location) {
         return divesService.getDiveByLocation(location);
     }
 
     @GetMapping("/date/{date}")
-    public Dive getDiveByDate(@PathVariable String date) {
+    public List<Dive> getDiveByDate(@PathVariable String date) {
         return divesService.getDiveByDate(LocalDate.parse(date));
+    }
+
+    @GetMapping("/id/{id}")
+    public Dive getDiveById(@PathVariable Integer id) {
+        return divesService.getDiveById(id);
     }
 
     @PostMapping
