@@ -1,10 +1,10 @@
 package com.andreahowes.dive_db.data;
 
+import com.andreahowes.dive_db.logic.Weather;
 import com.andreahowes.dive_db.logic.WeatherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.DefaultUriBuilderFactory;
@@ -30,15 +30,17 @@ public class ApiWeatherRepository implements WeatherRepository {
         this.restTemplate = restTemplate;
     }
 
+
     @Override
-    public ApiWeather getWeather(String location) {
+    public Weather getWeather(String location) {
         URI uri = new DefaultUriBuilderFactory()
                 .uriString(BASE_URL)
                 .path(PATH)
                 .queryParam(QUERY, location)
                 .queryParam(APPID, API_KEY)
                 .build();
-        ResponseEntity<ApiWeather> myResult = restTemplate.getForEntity(uri, ApiWeather.class);
-        return myResult.getBody();
+        ApiWeather apiWeather = restTemplate.getForObject(uri, ApiWeather.class);
+        Weather weather = WeatherMapper.mapWeather(apiWeather);
+        return weather;
     }
 }

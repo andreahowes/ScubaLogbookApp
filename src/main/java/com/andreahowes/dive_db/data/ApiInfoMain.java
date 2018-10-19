@@ -2,11 +2,8 @@ package com.andreahowes.dive_db.data;
 
 public class ApiInfoMain {
     private Double temp;
-
     private Double temp_min;
-
     private Double temp_max;
-
     private Double humidity;
 
     public Double getHumidity() {

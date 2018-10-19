@@ -5,9 +5,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ApiWeather {
     private String name;
-
     private ApiInfoMain main;
-
     private ApiInfoSys sys;
 
     public ApiInfoSys getSys() {
