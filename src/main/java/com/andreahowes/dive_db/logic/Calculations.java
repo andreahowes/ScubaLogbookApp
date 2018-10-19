@@ -6,17 +6,8 @@ import java.util.Date;
 public class Calculations {
 
 
-    public static String getTheSunriseTime(Long sunrise) {
+    public static String getFormattedTime(Long sunrise) {
         Date date = new java.util.Date(sunrise * 1000L);
-        SimpleDateFormat sdf = new java.text.SimpleDateFormat("HH:mm");
-        sdf.setTimeZone(java.util.TimeZone.getTimeZone("GMT-5"));
-        String formattedDate = sdf.format(date);
-        return formattedDate;
-
-    }
-
-    public static String getTheSunsetTime(Long sunset) {
-        Date date = new java.util.Date(sunset * 1000L);
         SimpleDateFormat sdf = new java.text.SimpleDateFormat("HH:mm");
         sdf.setTimeZone(java.util.TimeZone.getTimeZone("GMT-5"));
         String formattedDate = sdf.format(date);

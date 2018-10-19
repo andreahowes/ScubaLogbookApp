@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CalculationsTest {
 
-    private Integer sunrise;
+    private Long sunrise;
     private Long sunset;
     private Double temp;
 
@@ -20,20 +20,15 @@ public class CalculationsTest {
 
     @Test
     public void whenGettingTheSunriseTime_shouldReturnsSunriseTime() {
-        sunrise = 1539842822;
-        Long sunriseL = Long.valueOf(sunrise);
-        String theSunriseTime = Calculations.getTheSunriseTime(sunriseL);
+        sunrise = 1539949510L;
+        String theSunriseTime = Calculations.getTheSunriseTime(sunrise);
 
-        assertThat(theSunriseTime).isEqualTo("6:45");
-    }
-
-    @Test
-    public void whenGettingTheSunsetTime_shouldReturnsSunsetTime() {
+        assertThat(theSunriseTime).isEqualTo("06:45");
     }
 
     @Test
     public void whenGettingTheTempInF_shouldReturnTheTempInF() {
-        String theTempInF = Calculations.getTheTempInF(temp);
+        Double theTempInF = Calculations.getTheTempInF(temp);
 
         assertThat(theTempInF).isEqualTo(80.60);
 

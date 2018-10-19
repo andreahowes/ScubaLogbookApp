@@ -13,11 +13,11 @@ public class WeatherMapper {
         Weather weather = new Weather();
 
         Long sunrise = apiWeather.getSys().getSunrise();
-        weather.setSunrise(Calculations.getTheSunriseTime(sunrise));
+        weather.setSunrise(Calculations.getFormattedTime(sunrise));
 
 
         Long sunset = apiWeather.getSys().getSunset();
-        weather.setSunset(Calculations.getTheSunsetTime(sunset));
+        weather.setSunset(Calculations.getFormattedTime(sunset));
 
 
         Double temp = apiWeather.getMain().getTemp();
