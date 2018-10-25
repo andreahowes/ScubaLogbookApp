@@ -41,19 +41,19 @@ public class Dive {
         this.location = location;
     }
 
-    public double getDurationInMinutes() {
+    public Double getDurationInMinutes() {
         return durationInMinutes;
     }
 
-    public void setDurationInMinutes(double durationInMinutes) {
+    public void setDurationInMinutes(Double durationInMinutes) {
         this.durationInMinutes = durationInMinutes;
     }
 
-    public double getMaxDepthInMeters() {
+    public Double getMaxDepthInMeters() {
         return maxDepthInMeters;
     }
 
-    public void setMaxDepthInMeters(double maxDepthInMeters) {
+    public void setMaxDepthInMeters(Double maxDepthInMeters) {
         this.maxDepthInMeters = maxDepthInMeters;
     }
 
@@ -65,11 +65,11 @@ public class Dive {
         this.waterConditions = waterConditions;
     }
 
-    public boolean getSafetyStop() {
+    public Boolean getSafetyStop() {
         return safetyStop;
     }
 
-    public void setSafetyStop(boolean safetyStop) {
+    public void setSafetyStop(Boolean safetyStop) {
         this.safetyStop = safetyStop;
     }
 }
