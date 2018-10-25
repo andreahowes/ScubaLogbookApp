@@ -18,12 +18,12 @@ public class HomeController {
     public String home(Model model){
         model.addAttribute("date", LocalDate.now());
         model.addAttribute("temp", weatherService.getWeatherFromLocation("playa del carmen").getTemp());
-        return "home";
+        return "/home";
     }
 
     @GetMapping("/login")
     public String login(){
-        return "login";
+        return "/login";
     }
 
 }
