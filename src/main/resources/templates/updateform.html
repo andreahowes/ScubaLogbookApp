@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <div th:replace="fragments/header :: header"></div>
+</head>
+
+<body>
+
+<h1>
+    Update the dive form:
+</h1>
+<div th:replace="fragments/navigation::navigation"></div>
+
+<form th:action="@{'/updateform/' + ${dive.id}}" th:object="${dive}" method="post">
+    Date:<br>
+    <input type="date" th:field="*{date}" name="Date">
+    <br>
+    Location:
+    <br>
+    <input type="text" th:field="*{location}" name="Location">
+    <br>
+    Duration In Minutes:
+    <br>
+    <input type="number" step="0.1" th:field="*{durationInMinutes}" name="Duration In Minutes">
+    <br>
+    Max Depth In Meters:
+    <br>
+    <input type="number" step="0.1" th:field="*{maxDepthInMeters}" name="Max Depth In Meters">
+    <br>
+    Water Conditions:
+    <br>
+    <input type="text" th:field="*{waterConditions}" name="Water Conditions">
+    <br>
+    Safety Stop:
+    <br>
+    <input type="checkbox" th:field="*{safetyStop}" name="Safety Stop"> True
+    <br>
+    <input type="submit" value="Submit">
+
+</form>
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-package com.andreahowes.dive_db.presentation;
+package com.andreahowes.dive_db.presentation.api;
 
 import com.andreahowes.dive_db.logic.Dive;
 import com.andreahowes.dive_db.logic.DivesService;
@@ -11,13 +11,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user/logbook/dives")
-public class DivesController {
+public class DivesApiController {
 
     @Resource
     private DivesService divesService;
 
     @Autowired
-    public DivesController(DivesService divesService) {
+    public DivesApiController(DivesService divesService) {
         this.divesService = divesService;
     }
 

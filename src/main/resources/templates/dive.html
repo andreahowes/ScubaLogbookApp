@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="fragments/header :: header">
+
+    </div>
+
+</head>
+<body>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<h1>
+    Dive App Dive Page
+</h1>
+<table class="table">
+    <thead>
+    <th>Dive ID</th>
+    <th>Date</th>
+    <th>Location</th>
+    <th>Duration In Minutes</th>
+    <th>Max Depth In Meters</th>
+    <th>Water Conditions</th>
+    <th>Safety Stop</th>
+    <th>Delete</th>
+    <th>Update</th>
+
+
+    </thead>
+    <tr th:each="dive : ${divelist}">
+        <td th:text="${dive.id}"></td>
+        <td th:text="${dive.date}"></td>
+        <td th:text="${dive.location}"></td>
+        <td th:text="${dive.durationInMinutes}"></td>
+        <td th:text="${dive.maxDepthInMeters}"></td>
+        <td th:text="${dive.waterConditions}"></td>
+        <td th:text="${dive.safetyStop}"></td>
+
+        <td>
+            <a th:href="@{/deletedive(id=${dive.id})}" class="btn btn-danger">Delete</a>
+        </td>
+        <td>
+            <a th:href="@{'/updatedive/' + ${dive.id}}" class="btn btn-update">Update</a>
+        </td>
+    </tr>
+</table>
+
+<div th:replace="fragments/footer :: footer">
+
+</div>
+</body>
+</html>
+
+
+
+
+
+
+

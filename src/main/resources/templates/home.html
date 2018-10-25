@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="fragments/header :: header"> </div>
+</head>
+
+
+<body>
+<div th:replace="fragments/navigation::navigation"></div>
+
+<h1>
+    Dive App Home Page
+</h1>
+
+<img src="/images/cenote-280252_1280.jpg" width="500" height="300" alt="Scuba diver">
+
+<p th:text="'Hello diver! The date is: '  + ${date} + ' and the temperature is ' + ${temp} + 'F in Playa del Carmen! You should go for a dive!' "></p>
+<div th:replace="fragments/footer :: footer">
+</div>
+
+
+</body>
+</html>
