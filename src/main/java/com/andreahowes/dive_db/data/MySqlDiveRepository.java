@@ -1,7 +1,7 @@
 package com.andreahowes.dive_db.data;
 
-import com.andreahowes.dive_db.logic.Dive;
-import com.andreahowes.dive_db.logic.DiveRepository;
+import com.andreahowes.dive_db.logic.dive.Dive;
+import com.andreahowes.dive_db.logic.dive.DiveRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;

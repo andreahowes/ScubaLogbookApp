@@ -1,5 +1,6 @@
 package com.andreahowes.dive_db.logic;
 
+import com.andreahowes.dive_db.logic.weather.Calculations;
 import org.junit.Before;
 import org.junit.Test;
 

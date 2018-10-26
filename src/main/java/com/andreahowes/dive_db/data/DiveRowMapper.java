@@ -1,6 +1,6 @@
 package com.andreahowes.dive_db.data;
 
-import com.andreahowes.dive_db.logic.Dive;
+import com.andreahowes.dive_db.logic.dive.Dive;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

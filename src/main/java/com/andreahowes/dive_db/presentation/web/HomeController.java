@@ -1,6 +1,6 @@
 package com.andreahowes.dive_db.presentation.web;
 
-import com.andreahowes.dive_db.logic.WeatherService;
+import com.andreahowes.dive_db.logic.weather.WeatherService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,9 +21,5 @@ public class HomeController {
         return "/home";
     }
 
-    @GetMapping("/login")
-    public String login(){
-        return "/login";
-    }
 
 }

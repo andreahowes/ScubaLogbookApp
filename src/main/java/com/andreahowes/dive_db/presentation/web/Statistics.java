@@ -1,4 +1,4 @@
-package com.andreahowes.dive_db.presentation;
+package com.andreahowes.dive_db.presentation.web;
 
 public class Statistics {
     private Double result;

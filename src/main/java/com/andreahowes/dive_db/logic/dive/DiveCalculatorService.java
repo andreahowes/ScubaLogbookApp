@@ -1,4 +1,4 @@
-package com.andreahowes.dive_db.logic;
+package com.andreahowes.dive_db.logic.dive;
 
 import org.springframework.stereotype.Service;
 

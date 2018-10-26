@@ -1,7 +1,7 @@
 package com.andreahowes.dive_db.data;
 
-import com.andreahowes.dive_db.logic.Weather;
-import com.andreahowes.dive_db.logic.WeatherRepository;
+import com.andreahowes.dive_db.logic.weather.Weather;
+import com.andreahowes.dive_db.logic.weather.WeatherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;

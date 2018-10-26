@@ -1,4 +1,4 @@
-package com.andreahowes.dive_db.logic;
+package com.andreahowes.dive_db.logic.weather;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -1,5 +1,7 @@
-package com.andreahowes.dive_db.logic;
+package com.andreahowes.dive_db.logic.dive;
 
+import com.andreahowes.dive_db.logic.dive.Dive;
+import com.andreahowes.dive_db.logic.dive.DivesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
 package com.andreahowes.dive_db.presentation.api;
 
-import com.andreahowes.dive_db.logic.Dive;
-import com.andreahowes.dive_db.logic.DivesService;
+import com.andreahowes.dive_db.logic.dive.Dive;
+import com.andreahowes.dive_db.logic.dive.DivesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

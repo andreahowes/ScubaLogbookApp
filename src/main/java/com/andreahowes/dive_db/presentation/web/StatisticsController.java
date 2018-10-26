@@ -1,7 +1,7 @@
-package com.andreahowes.dive_db.presentation;
+package com.andreahowes.dive_db.presentation.web;
 
 
-import com.andreahowes.dive_db.logic.StatisticsService;
+import com.andreahowes.dive_db.logic.dive.StatisticsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

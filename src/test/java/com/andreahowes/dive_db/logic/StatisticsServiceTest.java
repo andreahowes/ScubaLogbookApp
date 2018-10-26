@@ -1,5 +1,8 @@
 package com.andreahowes.dive_db.logic;
 
+import com.andreahowes.dive_db.logic.dive.Dive;
+import com.andreahowes.dive_db.logic.dive.DivesService;
+import com.andreahowes.dive_db.logic.dive.StatisticsService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;

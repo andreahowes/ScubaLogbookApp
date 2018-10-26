@@ -1,7 +1,7 @@
 package com.andreahowes.dive_db.data;
 
-import com.andreahowes.dive_db.logic.Calculations;
-import com.andreahowes.dive_db.logic.Weather;
+import com.andreahowes.dive_db.logic.weather.Calculations;
+import com.andreahowes.dive_db.logic.weather.Weather;
 import org.springframework.stereotype.Service;
 
 @Service
