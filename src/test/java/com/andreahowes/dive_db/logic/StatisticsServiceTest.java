@@ -22,10 +22,10 @@ public class StatisticsServiceTest {
     public void setUp() throws Exception {
         Dive dive1 = new Dive();
         Dive dive2 = new Dive();
-        dive1.setDurationInMinutes(60);
-        dive2.setDurationInMinutes(40);
-        dive1.setMaxDepthInMeters(18);
-        dive2.setMaxDepthInMeters(30);
+        dive1.setDurationInMinutes(60.0);
+        dive2.setDurationInMinutes(40.0);
+        dive1.setMaxDepthInMeters(18.0);
+        dive2.setMaxDepthInMeters(30.0);
         diveList.add(dive1);
         diveList.add(dive2);
         divesServiceMock = Mockito.mock(DivesService.class);

@@ -22,7 +22,7 @@ public class CalculationsTest {
     @Test
     public void whenGettingTheSunriseTime_shouldReturnsSunriseTime() {
         sunrise = 1539949510L;
-        String theSunriseTime = Calculations.getTheSunriseTime(sunrise);
+        String theSunriseTime = Calculations.getFormattedTime(sunrise);
 
         assertThat(theSunriseTime).isEqualTo("06:45");
     }

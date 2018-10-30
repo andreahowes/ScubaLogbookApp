@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user/logbook/dives")
+@RequestMapping("/api/user/logbook/dives")
 public class DivesApiController {
 
     @Resource
@@ -41,10 +41,6 @@ public class DivesApiController {
         return divesService.getDiveById(id);
     }
 
-    @PostMapping
-    public Dive save(@RequestBody Dive dive) {
-        return divesService.save(dive);
-    }
 
     @PutMapping("/{id}")
     public Dive updateDiveById(@PathVariable int id, @RequestBody Dive dive) {

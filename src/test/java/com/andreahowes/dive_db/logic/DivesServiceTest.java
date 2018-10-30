@@ -1,6 +1,6 @@
 package com.andreahowes.dive_db.logic;
 
-import com.andreahowes.dive_db.data.MySqlDiveRepository;
+import com.andreahowes.dive_db.data.dives.MySqlDiveRepository;
 import com.andreahowes.dive_db.logic.dive.Dive;
 import com.andreahowes.dive_db.logic.dive.DivesService;
 import org.junit.Before;

@@ -1,4 +1,4 @@
-package com.andreahowes.dive_db.data;
+package com.andreahowes.dive_db.data.weather;
 
 import com.andreahowes.dive_db.logic.weather.Calculations;
 import com.andreahowes.dive_db.logic.weather.Weather;

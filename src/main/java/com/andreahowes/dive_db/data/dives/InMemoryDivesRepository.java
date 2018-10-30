@@ -1,4 +1,4 @@
-package com.andreahowes.dive_db.data;
+package com.andreahowes.dive_db.data.dives;
 
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.andreahowes.dive_db.data;
+package com.andreahowes.dive_db.data.weather;
 
 import org.springframework.stereotype.Service;
 

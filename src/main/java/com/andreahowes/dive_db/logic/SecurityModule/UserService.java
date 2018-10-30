@@ -2,6 +2,7 @@ package com.andreahowes.dive_db.logic.SecurityModule;
 
 import com.andreahowes.dive_db.data.SecurityData.RoleRepository;
 import com.andreahowes.dive_db.data.SecurityData.UserRepository;
+import com.andreahowes.dive_db.logic.SecurityModule.JWT.Credentials;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ public class UserService {
 
     private UserRepository userRepository;
     private RoleRepository roleRepository;
+
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
@@ -36,5 +38,17 @@ public class UserService {
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
         userRepository.save(user);
     }
+
+    public Boolean checkCredentials(String email, String password){
+        User user = userRepository.findByEmail(email);
+        boolean passwordMatches = bCryptPasswordEncoder.matches(password, user.getPassword());
+        if(passwordMatches){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
 
 }

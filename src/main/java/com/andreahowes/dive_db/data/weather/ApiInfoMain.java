@@ -1,4 +1,4 @@
-package com.andreahowes.dive_db.data;
+package com.andreahowes.dive_db.data.weather;
 
 public class ApiInfoMain {
     private Double temp;
