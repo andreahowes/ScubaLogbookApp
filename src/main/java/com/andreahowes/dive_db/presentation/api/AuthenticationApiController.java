@@ -30,8 +30,8 @@ public class AuthenticationApiController {
         Boolean isUserValid = userService.checkCredentials(credentials.getUser(), credentials.getPassword());
         System.out.println(isUserValid);
         if (isUserValid) {
-            System.out.println("The user is vaild! now how do I return a tocken?");
-            return new ResponseEntity<>(/*myTokenService.createApiToken(credentials),*/ HttpStatus.OK);
+            System.out.println("The user is valid! now how do I return a tocken?");
+            return new ResponseEntity<>(myTokenService.createApiToken(credentials), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(new Token(), HttpStatus.UNAUTHORIZED);
         }
