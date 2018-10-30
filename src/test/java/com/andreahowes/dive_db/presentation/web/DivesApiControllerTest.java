@@ -38,13 +38,10 @@ public class DivesApiControllerTest {
         dive1.setLocation("Playa");
 
         List<Dive> allDives = Arrays.asList(dive1);
-        //ArrayList<Dive> allDives = new ArrayList<>();
-
-        //allDives.add(0, dive1);
 
         given(divesService.getAllDives()).willReturn(allDives);
 
-        mvc.perform(get("/user/logbook/dives")
+        mvc.perform(get("/api/user/logbook/dives")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
