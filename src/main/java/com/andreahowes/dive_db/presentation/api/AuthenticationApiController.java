@@ -4,6 +4,8 @@ import com.andreahowes.dive_db.logic.SecurityModule.JWT.Credentials;
 import com.andreahowes.dive_db.logic.SecurityModule.JWT.MyTokenService;
 import com.andreahowes.dive_db.logic.SecurityModule.JWT.Token;
 import com.andreahowes.dive_db.logic.SecurityModule.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +19,7 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/api")
 public class AuthenticationApiController {
+    Logger logger = LoggerFactory.getLogger(AuthenticationApiController.class);
 
 
     @Resource
@@ -28,9 +31,8 @@ public class AuthenticationApiController {
     @PostMapping("/authenticate")
     public ResponseEntity<Token> getCredentials(@RequestBody Credentials credentials) {
         Boolean isUserValid = userService.checkCredentials(credentials.getUser(), credentials.getPassword());
-        System.out.println(isUserValid);
         if (isUserValid) {
-            System.out.println("The user is valid! now how do I return a tocken?");
+            logger.info("An INFO Message");
             return new ResponseEntity<>(myTokenService.createApiToken(credentials), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(new Token(), HttpStatus.UNAUTHORIZED);
