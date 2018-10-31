@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
@@ -72,8 +73,56 @@ public class DivesApiControllerTest {
 
     }
 
+    @Test
+    public void whenGettingAllDivesForLocation_thenReturnAllDivesForLocation() throws Exception{
+        Dive dive1 = new Dive();
+        String location = "playa";
+        dive1.setLocation(location);
+        List<Dive> playaDives = Arrays.asList(dive1);
 
+        given(divesService.getDiveByLocation("playa")).willReturn(playaDives);
 
+        mvc.perform(get("/api/user/logbook/dives/location/playa?token=712052887")
+                .contentType(MediaType.APPLICATION_JSON))
+                //.andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$[0].location", is(dive1.getLocation())));
+    }
+
+    @Test
+    public void whenGettingDiveByLocationWithInvalidToken_thenReturnUnauthorizedUser() throws Exception{
+        doThrow(new InvalidTokenException("")).when(myTokenService).validateTokenByValue(INVALID_TOKEN);
+        mvc.perform(get("/api/user/logbook/dives/location/playa?token=" + INVALID_TOKEN)
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isUnauthorized())
+                .andExpect(status().reason(containsString("Invalid Token")));
+    }
+    @Test
+    public void whenGettingAllDivesByDate_thenReturnAllDivesForDate() throws Exception{
+        Dive dive1 = new Dive();
+        LocalDate date = LocalDate.of(2019, 11, 25);
+        dive1.setDate(date);
+        List<Dive> dives = Arrays.asList(dive1);
+
+        given(divesService.getDiveByDate(date)).willReturn(dives);
+
+        mvc.perform(get("/api/user/logbook/dives/date/2019-11-25?token=712052887")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$[0].date", is(dive1.getDate().toString())));
+    }
+
+    @Test
+    public void whenGettingDiveByDateWithInvalidToken_thenReturnUnauthorizedUser() throws Exception{
+        doThrow(new InvalidTokenException("")).when(myTokenService).validateTokenByValue(INVALID_TOKEN);
+        mvc.perform(get("/api/user/logbook/dives/date/2019-11-25?token=" + INVALID_TOKEN)
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isUnauthorized())
+                .andExpect(status().reason(containsString("Invalid Token")));
+    }
 
 
 }
