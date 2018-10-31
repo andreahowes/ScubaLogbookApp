@@ -19,7 +19,7 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/api")
 public class AuthenticationApiController {
-    Logger logger = LoggerFactory.getLogger(AuthenticationApiController.class);
+    private Logger logger = LoggerFactory.getLogger(AuthenticationApiController.class);
 
 
     @Resource

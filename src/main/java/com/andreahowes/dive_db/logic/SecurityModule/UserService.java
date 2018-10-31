@@ -2,7 +2,6 @@ package com.andreahowes.dive_db.logic.SecurityModule;
 
 import com.andreahowes.dive_db.data.SecurityData.RoleRepository;
 import com.andreahowes.dive_db.data.SecurityData.UserRepository;
-import com.andreahowes.dive_db.logic.SecurityModule.JWT.Credentials;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

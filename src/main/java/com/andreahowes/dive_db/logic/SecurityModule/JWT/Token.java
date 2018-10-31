@@ -13,7 +13,7 @@ public class Token {
     @Column(name = "id")
     private Integer id;
 
-    private String token;
+    private String value;
 
     public Integer getId() {
         return id;
@@ -23,11 +23,11 @@ public class Token {
         this.id = id;
     }
 
-    public String getToken() {
-        return token;
+    public String getValue() {
+        return value;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setValue(String value) {
+        this.value = value;
     }
 }
