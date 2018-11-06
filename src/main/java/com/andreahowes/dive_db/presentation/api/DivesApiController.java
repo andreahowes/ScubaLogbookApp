@@ -1,58 +1,66 @@
 package com.andreahowes.dive_db.presentation.api;
 
-import com.andreahowes.dive_db.logic.Dive;
-import com.andreahowes.dive_db.logic.DivesService;
+import com.andreahowes.dive_db.logic.SecurityModule.JWT.MyTokenService;
+import com.andreahowes.dive_db.logic.dive.Dive;
+import com.andreahowes.dive_db.logic.dive.DivesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user/logbook/dives")
+@RequestMapping("/api/user/logbook/dives")
 public class DivesApiController {
 
-    @Resource
     private DivesService divesService;
 
+    private MyTokenService myTokenService;
+
     @Autowired
-    public DivesApiController(DivesService divesService) {
+    public DivesApiController(DivesService divesService, MyTokenService myTokenService) {
         this.divesService = divesService;
+        this.myTokenService=myTokenService;
     }
 
-    @GetMapping
-    public List<Dive> getAllDives() {
+    @GetMapping()
+    public List<Dive> getAllDives(@RequestParam(name = "token") String tokenValue) {
+        myTokenService.validateTokenByValue(tokenValue);
         return divesService.getAllDives();
+
     }
 
     @GetMapping("/location/{location}")
-    public List<Dive> getDiveByLocation(@PathVariable String location) {
+    public List<Dive> getDiveByLocation(@RequestParam(name = "token") String tokenValue, @PathVariable String location) {
+        myTokenService.validateTokenByValue(tokenValue);
         return divesService.getDiveByLocation(location);
     }
 
     @GetMapping("/date/{date}")
-    public List<Dive> getDiveByDate(@PathVariable String date) {
+    public List<Dive> getDiveByDate(@RequestParam(name = "token") String tokenValue, @PathVariable String date) {
+        myTokenService.validateTokenByValue(tokenValue);
         return divesService.getDiveByDate(LocalDate.parse(date));
     }
 
     @GetMapping("/id/{id}")
-    public Dive getDiveById(@PathVariable Integer id) {
+    public Dive getDiveById(@RequestParam(name = "token") String tokenValue, @PathVariable Integer id) {
+        myTokenService.validateTokenByValue(tokenValue);
+
         return divesService.getDiveById(id);
     }
 
-    @PostMapping
-    public Dive save(@RequestBody Dive dive) {
-        return divesService.save(dive);
-    }
 
     @PutMapping("/{id}")
-    public Dive updateDiveById(@PathVariable int id, @RequestBody Dive dive) {
+    public Dive updateDiveById(@RequestParam(name = "token") String tokenValue, @PathVariable int id, @RequestBody Dive dive) {
+        myTokenService.validateTokenByValue(tokenValue);
+
         return divesService.updateDiveById(id, dive);
     }
 
     @DeleteMapping("/{id}")
-    public Dive deleteDive(@PathVariable int id) {
+    public Dive deleteDive(@RequestParam(name = "token") String tokenValue, @PathVariable int id) {
+        myTokenService.validateTokenByValue(tokenValue);
+
         return divesService.delete(id);
     }
 

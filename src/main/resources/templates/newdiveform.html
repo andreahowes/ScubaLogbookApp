@@ -7,11 +7,11 @@
 </head>
 
 <body>
-
+<div th:replace="fragments/navigation::navigation"></div>
 <h1>
     Fill out a dive form for each dive you take:
 </h1>
-<div th:replace="fragments/navigation::navigation"></div>
+
 
 <form th:action="@{/dive}" th:object="${dive}" method="post">
     Date:<br>
