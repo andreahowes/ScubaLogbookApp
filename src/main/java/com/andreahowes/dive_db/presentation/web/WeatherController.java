@@ -21,8 +21,7 @@ public class WeatherController {
 
     @GetMapping("location/{location}")
     private Weather getWeatherFromLocation(@PathVariable String location) {
-        Weather weather = weatherService.getWeatherFromLocation(location);
-        return weather;
+        return weatherService.getWeatherFromLocation(location);
 
     }
 
