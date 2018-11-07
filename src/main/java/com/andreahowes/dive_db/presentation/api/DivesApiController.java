@@ -20,14 +20,13 @@ public class DivesApiController {
     @Autowired
     public DivesApiController(DivesService divesService, MyTokenService myTokenService) {
         this.divesService = divesService;
-        this.myTokenService=myTokenService;
+        this.myTokenService = myTokenService;
     }
 
     @GetMapping()
     public List<Dive> getAllDives(@RequestParam(name = "token") String tokenValue) {
         myTokenService.validateTokenByValue(tokenValue);
         return divesService.getAllDives();
-
     }
 
     @GetMapping("/location/{location}")
@@ -45,22 +44,18 @@ public class DivesApiController {
     @GetMapping("/id/{id}")
     public Dive getDiveById(@RequestParam(name = "token") String tokenValue, @PathVariable Integer id) {
         myTokenService.validateTokenByValue(tokenValue);
-
         return divesService.getDiveById(id);
     }
-
 
     @PutMapping("/{id}")
     public Dive updateDiveById(@RequestParam(name = "token") String tokenValue, @PathVariable int id, @RequestBody Dive dive) {
         myTokenService.validateTokenByValue(tokenValue);
-
         return divesService.updateDiveById(id, dive);
     }
 
     @DeleteMapping("/{id}")
     public Dive deleteDive(@RequestParam(name = "token") String tokenValue, @PathVariable int id) {
         myTokenService.validateTokenByValue(tokenValue);
-
         return divesService.delete(id);
     }
 

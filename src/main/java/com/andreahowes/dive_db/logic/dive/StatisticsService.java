@@ -1,10 +1,9 @@
 package com.andreahowes.dive_db.logic.dive;
 
-import com.andreahowes.dive_db.logic.dive.Dive;
-import com.andreahowes.dive_db.logic.dive.DivesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -32,15 +31,23 @@ public class StatisticsService {
     }
 
     public double getMaxDepthInMetersForAllDives() {
-        List<Dive> allDives = divesService.getAllDives();
+        return divesService.getAllDives()
+                .stream()
+                .max(Comparator.comparing(Dive::getMaxDepthInMeters))
+                .get()
+                .getMaxDepthInMeters();
 
-        double maxDepth = 0;
-        for (Dive dive : allDives) {
-            if (maxDepth<dive.getMaxDepthInMeters()) {
-                maxDepth = dive.getMaxDepthInMeters();
-            }
-        }
-        return maxDepth;
+
+//
+//        List<Dive> allDives = divesService.getAllDives();
+//
+//        double maxDepth = 0;
+//        for (Dive dive : allDives) {
+//            if (maxDepth < dive.getMaxDepthInMeters()) {
+//                maxDepth = dive.getMaxDepthInMeters();
+//            }
+//        }
+//        return maxDepth;
     }
 
     public double getMinDepthInMetersForAllDives() {
@@ -49,12 +56,13 @@ public class StatisticsService {
         Dive dive1 = allDives.get(0);
         double minDepth = dive1.getMaxDepthInMeters();
         for (Dive dive : allDives) {
-            if (minDepth>dive.getMaxDepthInMeters()) {
+            if (minDepth > dive.getMaxDepthInMeters()) {
                 minDepth = dive.getMaxDepthInMeters();
             }
         }
         return minDepth;
     }
+
     public double getAverageDepthInMetersForAllDives() {
         List<Dive> allDives = divesService.getAllDives();
 
@@ -63,7 +71,7 @@ public class StatisticsService {
             sumOfAllDepths += dive.getMaxDepthInMeters();
         }
         double numberOfDives = getTotalNumberOfDives();
-        return sumOfAllDepths/numberOfDives;
+        return sumOfAllDepths / numberOfDives;
     }
 
 }

@@ -18,20 +18,20 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class DivesServiceTest {
+    private final static String LOCATION = "Bull shark dive";
+    private final static LocalDate DATE = LocalDate.of(2014, Month.JANUARY, 1);
     private DivesService divesService;
     private MySqlDiveRepository mySqlDiveRepositoryMock;
     private Dive dive1;
     private Dive dive2;
     private Dive diveFromRepository;
-    private List<Dive> diveList= new ArrayList<>();
+    private List<Dive> diveList = new ArrayList<>();
     private int dive2Id = 2;
     private int dive3Id = 3;
-    private final static String LOCATION = "Bull shark dive";
-    private final static LocalDate DATE = LocalDate.of(2014, Month.JANUARY, 1);
 
     @Before
-    public void setUp() throws Exception {
-        mySqlDiveRepositoryMock= Mockito.mock(MySqlDiveRepository.class);
+    public void setUp() {
+        mySqlDiveRepositoryMock = Mockito.mock(MySqlDiveRepository.class);
         divesService = new DivesService(mySqlDiveRepositoryMock);
 
         dive1 = new Dive();
@@ -83,8 +83,9 @@ public class DivesServiceTest {
 //        assertThat(diveListByDate)
 //            .extracting(diveInList->diveInList.getDate()).containsOnly(DATE);
     }
+
     @Test
-    public void whenGettingDiveById_shouldReturnDiveById(){
+    public void whenGettingDiveById_shouldReturnDiveById() {
         when(mySqlDiveRepositoryMock.getDiveById(dive2Id)).thenReturn(dive2);
         Dive diveById = divesService.getDiveById(dive2Id);
 

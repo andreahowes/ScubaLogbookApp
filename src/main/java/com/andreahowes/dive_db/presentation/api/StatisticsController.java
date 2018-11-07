@@ -1,4 +1,4 @@
-package com.andreahowes.dive_db.presentation.web;
+package com.andreahowes.dive_db.presentation.api;
 
 
 import com.andreahowes.dive_db.logic.dive.StatisticsService;

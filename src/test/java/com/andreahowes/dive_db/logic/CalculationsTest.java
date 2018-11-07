@@ -10,12 +10,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CalculationsTest {
 
     private Long sunrise;
-    private Long sunset;
     private Double temp;
 
     @Before
-    public void setUp() throws Exception {
-         //sunset = 1539882295;
+    public void setUp() {
         temp = 300.0;
     }
 
@@ -32,7 +30,6 @@ public class CalculationsTest {
         Double theTempInF = Calculations.getTheTempInF(temp);
 
         assertThat(theTempInF).isEqualTo(80.60);
-
     }
 
 }

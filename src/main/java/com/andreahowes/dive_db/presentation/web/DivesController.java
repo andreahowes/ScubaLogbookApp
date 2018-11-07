@@ -18,32 +18,32 @@ public class DivesController {
     @GetMapping("/dive")
     public String dive(Model model) {
         model.addAttribute("divelist", divesService.getAllDives());
-        return "dive";
+        return "/dive";
     }
 
     @GetMapping("/newdiveform")
     public String diveform(Model model) {
         model.addAttribute("dive", new Dive());
-        return "newdiveform";
+        return "/newdiveform";
     }
 
-    @PostMapping("/dive")
+    @PostMapping("/newdivesubit")
     public String diveSubmit(@ModelAttribute Dive dive) {
         divesService.save(dive);
         return "redirect:/dive";
     }
 
-    @GetMapping(value = "/deletedive")
+    @GetMapping("/deletedive")
     public String diveDelete(@RequestParam(name = "id") Integer id) {
         divesService.delete(id);
         return "redirect:/dive";
     }
 
-    @GetMapping(value = "/updatedive/{id}")
+    @GetMapping("/updatedive/{id}")
     public String goToUpdateDiveForm(@PathVariable(name = "id") Integer id, Model model) {
         Dive newDive = divesService.getDiveById(id);
         model.addAttribute("dive", newDive);
-        return "updateform";
+        return "/updateform";
     }
 
     @PostMapping("/updateform/{id}")

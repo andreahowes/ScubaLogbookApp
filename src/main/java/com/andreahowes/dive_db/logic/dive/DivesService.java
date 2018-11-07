@@ -15,9 +15,10 @@ public class DivesService {
         this.diveRepository = diveRepository;
     }
 
-    public List<Dive> getAllDives(){
+    public List<Dive> getAllDives() {
         return diveRepository.getAllDives();
     }
+
     public List<Dive> getDiveByLocation(String location) {
         return diveRepository.getDiveByLocation(location);
     }
@@ -26,7 +27,7 @@ public class DivesService {
         return diveRepository.getDiveByDate(date);
     }
 
-    public Dive getDiveById(int id){
+    public Dive getDiveById(int id) {
         return diveRepository.getDiveById(id);
     }
 
