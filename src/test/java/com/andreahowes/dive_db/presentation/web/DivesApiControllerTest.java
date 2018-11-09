@@ -32,7 +32,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(value = DivesApiController.class, secure = false)
 public class DivesApiControllerTest {
 
-    public static final String INVALID_TOKEN = "12345";
+    private static final String INVALID_TOKEN = "12345";
     @Autowired
     private MockMvc mvc;
 
