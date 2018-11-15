@@ -6,6 +6,7 @@ import java.time.LocalDate;
 
 public class Dive {
     private int id;
+    private String user;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
     private String location;
@@ -23,6 +24,14 @@ public class Dive {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public LocalDate getDate() {

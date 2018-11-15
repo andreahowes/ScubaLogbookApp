@@ -28,15 +28,18 @@ public class DivesServiceTest {
     private List<Dive> diveList = new ArrayList<>();
     private int dive2Id = 2;
     private int dive3Id = 3;
+    //private User user;
 
     @Before
     public void setUp() {
         mySqlDiveRepositoryMock = Mockito.mock(MySqlDiveRepository.class);
         divesService = new DivesService(mySqlDiveRepositoryMock);
+        //user.setLastName("Howes");
 
         dive1 = new Dive();
         dive1.setLocation("Bull shark dive");
         dive1.setDate(DATE);
+        dive1.setUser("Howes");
         diveList.add(dive1);
 
         dive2 = new Dive();
@@ -49,9 +52,9 @@ public class DivesServiceTest {
 
     @Test
     public void whenGettingAllDives_shouldReturnAllDives() {
-        when(mySqlDiveRepositoryMock.getAllDives()).thenReturn(Arrays.asList(dive1, dive2));
+        when(mySqlDiveRepositoryMock.getAllDives("Howes")).thenReturn(Arrays.asList(dive1, dive2));
 
-        List<Dive> allDives = divesService.getAllDives();
+        List<Dive> allDives = divesService.getAllDives("Howes");
 
         assertThat(allDives).hasSize(2);
         assertThat(allDives).contains(dive1, dive2);

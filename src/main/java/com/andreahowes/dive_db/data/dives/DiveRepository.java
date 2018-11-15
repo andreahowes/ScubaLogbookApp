@@ -1,5 +1,6 @@
-package com.andreahowes.dive_db.logic.dive;
+package com.andreahowes.dive_db.data.dives;
 
+import com.andreahowes.dive_db.logic.dive.Dive;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -8,7 +9,7 @@ import java.util.List;
 @Repository
 public interface DiveRepository {
 
-    List<Dive> getAllDives();
+    List<Dive> getAllDives(String user);
 
     List<Dive> getDiveByLocation(String location);
 

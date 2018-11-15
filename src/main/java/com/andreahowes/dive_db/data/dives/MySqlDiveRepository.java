@@ -1,7 +1,6 @@
 package com.andreahowes.dive_db.data.dives;
 
 import com.andreahowes.dive_db.logic.dive.Dive;
-import com.andreahowes.dive_db.logic.dive.DiveRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
@@ -29,8 +28,10 @@ public class MySqlDiveRepository implements DiveRepository {
     }
 
     @Override
-    public List<Dive> getAllDives() {
-        return jdbcTemplate.query("SELECT * FROM " + diveTable, rowMapper);
+    public List<Dive> getAllDives(String user) {
+        String query = "SELECT * FROM " + diveTable + " WHERE d_user = :user";
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("user", user);
+        return jdbcTemplate.query(query, namedParameters, rowMapper);
     }
 
     @Override
@@ -56,7 +57,7 @@ public class MySqlDiveRepository implements DiveRepository {
 
     @Override
     public Dive save(Dive dive) {
-        String query = "INSERT INTO " + diveTable + " VALUES(null, :date, :location, :durationInMinutes, :maxDepthInMeters, :waterConditions, :safetyStop)";
+        String query = "INSERT INTO " + diveTable + " VALUES(null, :user, :date, :location, :durationInMinutes, :maxDepthInMeters, :waterConditions, :safetyStop)";
         KeyHolder key = new GeneratedKeyHolder();
         SqlParameterSource namedParameters = new BeanPropertySqlParameterSource(dive);
         jdbcTemplate.update(query, namedParameters, key);

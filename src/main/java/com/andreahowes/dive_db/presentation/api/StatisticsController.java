@@ -23,30 +23,30 @@ public class StatisticsController {
 
 
     @GetMapping("/dives")
-    public Statistics getTotalNumberOfDives() {
-        return new Statistics(statisticsService.getTotalNumberOfDives(), "Total Number Of Dives");
+    public Statistics getTotalNumberOfDives(String user) {
+        return new Statistics(statisticsService.getTotalNumberOfDives(user), "Total Number Of Dives");
     }
 
     @GetMapping("/duration/total")
-    public Statistics getTotalTimeInWaterInMinutes() {
-        return new Statistics(statisticsService.getTotalTimeInWaterInMinutes(), "Total Number of Minutes in the Water");
+    public Statistics getTotalTimeInWaterInMinutes(String user) {
+        return new Statistics(statisticsService.getTotalTimeInWaterInMinutes(user), "Total Number of Minutes in the Water");
     }
 
     @GetMapping("/depth/max")
-    public Statistics getMaxDepthInMetersForAllDives() {
-        return new Statistics(statisticsService.getMaxDepthInMetersForAllDives(),"Max Depth In Meters");
+    public Statistics getMaxDepthInMetersForAllDives(String user) {
+        return new Statistics(statisticsService.getMaxDepthInMetersForAllDives(user),"Max Depth In Meters");
 
     }
 
     @GetMapping("/depth/min")
-    public Statistics getMinDepthInMetersForAllDives() {
-        return new Statistics(statisticsService.getMinDepthInMetersForAllDives(), "Min Depth In Meters");
+    public Statistics getMinDepthInMetersForAllDives(String user) {
+        return new Statistics(statisticsService.getMinDepthInMetersForAllDives(user), "Min Depth In Meters");
 
     }
 
     @GetMapping("/depth/average")
-    public Statistics getAverageDepthInMetersForAllDives() {
-        return new Statistics(statisticsService.getAverageDepthInMetersForAllDives(), "Average Depth in Meters");
+    public Statistics getAverageDepthInMetersForAllDives(String user) {
+        return new Statistics(statisticsService.getAverageDepthInMetersForAllDives(user), "Average Depth in Meters");
 
     }
 }

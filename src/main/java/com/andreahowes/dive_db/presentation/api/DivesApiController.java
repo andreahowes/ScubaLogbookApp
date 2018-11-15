@@ -23,10 +23,10 @@ public class DivesApiController {
         this.myTokenService = myTokenService;
     }
 
-    @GetMapping()
-    public List<Dive> getAllDives(@RequestParam(name = "token") String tokenValue) {
+    @GetMapping("/{user}")
+    public List<Dive> getAllDives(@PathVariable String user, @RequestParam(name = "token") String tokenValue) {
         myTokenService.validateTokenByValue(tokenValue);
-        return divesService.getAllDives();
+        return divesService.getAllDives(user);
     }
 
     @GetMapping("/location/{location}")

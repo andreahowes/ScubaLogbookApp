@@ -1,7 +1,7 @@
 package com.andreahowes.dive_db.logic.dive;
 
+import com.andreahowes.dive_db.data.dives.DiveRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -16,9 +16,9 @@ public class DivesService {
         this.diveRepository = diveRepository;
     }
 
-    @Cacheable("allDives")
-    public List<Dive> getAllDives() {
-        return diveRepository.getAllDives();
+   // @Cacheable("allDives")
+    public List<Dive> getAllDives(String user) {
+        return diveRepository.getAllDives(user);
     }
 
     public List<Dive> getDiveByLocation(String location) {

@@ -16,12 +16,12 @@ public class StatisticsService {
         this.divesService = divesService;
     }
 
-    public double getTotalNumberOfDives() {
-        return divesService.getAllDives().size();
+    public double getTotalNumberOfDives(String user) {
+        return divesService.getAllDives(user).size();
     }
 
-    public double getTotalTimeInWaterInMinutes() {
-        List<Dive> allDives = divesService.getAllDives();
+    public double getTotalTimeInWaterInMinutes(String user) {
+        List<Dive> allDives = divesService.getAllDives(user);
         double totalTimeInWater = 0;
         for (Dive dive : allDives) {
             totalTimeInWater += dive.getDurationInMinutes();
@@ -30,8 +30,8 @@ public class StatisticsService {
 
     }
 
-    public double getMaxDepthInMetersForAllDives() {
-        return divesService.getAllDives()
+    public double getMaxDepthInMetersForAllDives(String user) {
+        return divesService.getAllDives(user)
                 .stream()
                 .max(Comparator.comparing(Dive::getMaxDepthInMeters))
                 .get()
@@ -50,8 +50,8 @@ public class StatisticsService {
 //        return maxDepth;
     }
 
-    public double getMinDepthInMetersForAllDives() {
-        List<Dive> allDives = divesService.getAllDives();
+    public double getMinDepthInMetersForAllDives(String user) {
+        List<Dive> allDives = divesService.getAllDives(user);
 
         Dive dive1 = allDives.get(0);
         double minDepth = dive1.getMaxDepthInMeters();
@@ -63,14 +63,14 @@ public class StatisticsService {
         return minDepth;
     }
 
-    public double getAverageDepthInMetersForAllDives() {
-        List<Dive> allDives = divesService.getAllDives();
+    public double getAverageDepthInMetersForAllDives(String user) {
+        List<Dive> allDives = divesService.getAllDives(user);
 
         double sumOfAllDepths = 0;
         for (Dive dive : allDives) {
             sumOfAllDepths += dive.getMaxDepthInMeters();
         }
-        double numberOfDives = getTotalNumberOfDives();
+        double numberOfDives = getTotalNumberOfDives(user);
         return sumOfAllDepths / numberOfDives;
     }
 

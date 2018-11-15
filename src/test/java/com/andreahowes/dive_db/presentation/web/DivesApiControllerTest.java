@@ -47,12 +47,13 @@ public class DivesApiControllerTest {
     public void givenAllDives_whenGivenAllDives_thenReturnJsonArray() throws Exception {
         Dive dive1 = new Dive();
         dive1.setLocation("Playa");
+        dive1.setUser("Howes");
 
         List<Dive> allDives = Arrays.asList(dive1);
 
-        given(divesService.getAllDives()).willReturn(allDives);
+        given(divesService.getAllDives("Howes")).willReturn(allDives);
 
-        mvc.perform(get("/api/user/logbook/dives?token=12345")
+        mvc.perform(get("/api/user/logbook/dives/Howes?token=12345")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
 
@@ -66,7 +67,7 @@ public class DivesApiControllerTest {
     public void whenGettingAllDivesWithInvalidToken_thenReturnUnauthorizedResponse() throws Exception {
 
         doThrow(new InvalidTokenException("")).when(myTokenService).validateTokenByValue(INVALID_TOKEN);
-        mvc.perform(get("/api/user/logbook/dives?token=" + INVALID_TOKEN)
+        mvc.perform(get("/api/user/logbook/dives/Howes?token=" + INVALID_TOKEN)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isUnauthorized())
                 .andExpect(status().reason(containsString("Invalid Token")));

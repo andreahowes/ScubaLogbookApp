@@ -11,6 +11,7 @@ class DiveRowMapper implements RowMapper<Dive> {
     public Dive mapRow(ResultSet rs, int rowNum) throws SQLException {
         Dive dive = new Dive();
         dive.setId(rs.getInt("d_id"));
+        dive.setUser(rs.getString("d_user"));
         dive.setDate(rs.getDate("d_date").toLocalDate());
         dive.setLocation(rs.getString("d_location"));
         dive.setDurationInMinutes(rs.getDouble("d_duration_in_minutes"));
