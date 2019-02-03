@@ -14,7 +14,7 @@ public class HomeController {
     @Resource
     private WeatherService weatherService;
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String home(Model model){
         model.addAttribute("date", LocalDate.now());
         model.addAttribute("temp", weatherService.getWeatherFromLocation("playa del carmen").getTemp());
