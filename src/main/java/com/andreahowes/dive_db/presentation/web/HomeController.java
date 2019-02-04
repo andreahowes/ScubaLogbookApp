@@ -2,11 +2,10 @@ package com.andreahowes.dive_db.presentation.web;
 
 import com.andreahowes.dive_db.logic.weather.WeatherService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import java.time.LocalDate;
 
 @Controller
 public class HomeController {
@@ -14,11 +13,12 @@ public class HomeController {
     @Resource
     private WeatherService weatherService;
 
-    @GetMapping("/")
-    public String home(Model model){
-        model.addAttribute("date", LocalDate.now());
-        model.addAttribute("temp", weatherService.getWeatherFromLocation("playa del carmen").getTemp());
-        return "/home";
+    @GetMapping({"/","/home"})
+    public ModelAndView home(ModelAndView modelAndView){
+        modelAndView.setViewName("home");
+        //model.addAttribute("date", LocalDate.now());
+        //model.addAttribute("temp", weatherService.getWeatherFromLocation("playa del carmen").getTemp());
+        return modelAndView;
     }
 
 
