@@ -3,12 +3,12 @@
       xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <div th:replace="fragments/header :: header"> </div>
+    <div th:replace="fragments/header :: header"></div>
 
 </head>
 <body>
 <div th:replace="fragments/navigation::navigation"></div>
-
+<!--
 <div class="container">
     <form th:action="@{/login}" method="POST" class="form-signin">
         <h3 class="form-signin-heading" th:text="Welcome"></h3>
@@ -28,5 +28,59 @@
         <button class="btn btn-md btn-warning btn-block" type="Submit">Go To Registration Page</button>
     </form>
 </div>
+</body>
+</html>-->
+
+
+<!--<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+>
+
+<head>
+    <div th:replace="fragments/header :: header"></div>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
+          type="text/css">
+</head>
+
+<body class="bg-light">
+
+<div th:replace="fragments/navbar :: navbar"></div>-->
+<div class="container col-sm-3 login">
+    <h3 class="top-padding text-center">Please Login</h3>
+    <!--<div th:if="${#httpServletRequest.getParameter('error') == 'true'}"
+         class="container card error-bg create-account">
+        <p class="my-auto">Incorrect username or password.</p>
+    </div>-->
+    <div class="container bg-white card">
+        <form th:action="@{/login}" method="POST" class="form-signin">
+
+            <!--<form action="@{/login}" method="post">-->
+            <div class="form-group row">
+                <label for="email" class="col-sm-12 col-form-label">Email</label>
+                <div class="col-sm-12">
+                    <input required="required" type="text" name="email" class="form-control" id="email">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="password" class="col-sm-12 col-form-label">Password</label>
+                <div class="col-sm-12">
+                    <input required="required" type="password" name="password" class="form-control" id="password">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12 text-center">
+                    <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit"
+                            th:text="Login"></button>
+                    <!--<button type="Submit" class="col-sm-8 btn btn-success">Login</button-->
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="container card bg-light text-center create-account">
+        <p class="my-auto">New User? <a href="/registration">Create an account</a></p>
+    </div>
+</div>
+
 </body>
 </html>
