@@ -8,10 +8,10 @@ import org.springframework.cache.annotation.EnableCaching;
 @EnableCaching
 public class DiveDbApplication {//extends SpringBootServletInitializer {
 
-   //@Override
-   //protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-   //    return application.sources(DiveDbApplication.class);
-   //}
+  //@Override
+  //protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+  //    return application.sources(DiveDbApplication.class);
+  //}
     public static void main(String[] args) {
         SpringApplication.run(DiveDbApplication.class, args);
     }
