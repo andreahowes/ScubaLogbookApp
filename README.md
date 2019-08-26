@@ -6,8 +6,6 @@ A Java application for logging and keep track of the scuba diving information!
 
 The application is accessable through a web page and all user info is stored in a MySQL database.
 
-URL: http://18.223.22.42
-
 ## Getting Started
 
 You can get started by cloning the project to your local machine:
